@@ -20,7 +20,7 @@ class Database {
 		  $conn = new PDO("mysql:host=$servername;dbname=abit.wp", $username, $password);
 		  // set the PDO error mode to exception
 		  $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-		  $this->pdo = $conn;
+		  $this->$pdo = $conn;
 		  echo "Connected successfully";
 		} catch(PDOException $e) {
 		  echo "Connection failed: " . $e->getMessage();
