@@ -5,27 +5,23 @@
  */
 class Database {
 
-	public $servername 	= "localhost";
-	public $username 	= "root";
-	public $password 	= "337338";
-	public $dbname 		= "abit.wp";
-	public 	$db_conn;
+	private $servername = "localhost";
+	private $username 	= "root";
+	private $password 	= "337338";
+	private $dbname 	= "abit.wp";
+	public 	$pdo;
 
 	public function __construct(){
-		$servername = "localhost";
-		$username 	= "root";
-		$password 	= "337338";
-		$dbname 	= "abit.wp";
-
-		// Create a new mysqli instance
-		$conn = new mysqli($servername, $username, $password, $dbname);
-
-		// Check the connection
-		if ( $conn->connect_error ) {
-		    die("Connection failed: " . $conn->connect_error);
-		}
-
-		$this->db_conn = $conn;
+		if ( isset( $this->pdo ) ) {
+				try {
+				  $conn = new PDO("mysql:host=$servername;dbname=abit.wp", $username, $password);
+				  // set the PDO error mode to exception
+				  $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+				  echo "Connected successfully";
+				} catch(PDOException $e) {
+				  echo "Connection failed: " . $e->getMessage();
+				}
+			}	
 	}
 
 		

@@ -1,7 +1,7 @@
 <?php 
 	// include_once( 'Session.php' );
 	include( 'inc/Header.php' );
-	// include( 'lib/database.php' );
+	
 ?>
 
 <div class="row">

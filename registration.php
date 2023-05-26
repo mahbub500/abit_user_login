@@ -2,13 +2,13 @@
 	// include_once( 'Session.php' );
 	include( 'inc/Header.php' );
 	include( 'lib/User.php' );
-	include( 'lib/database.php' );
+	// include( 'lib/database.php' );
 ?>
 
 <?php 
 // $db = new Database();
 $user = new User();
-$userList = $user->users();
+// $userList = $user->users();
 
 if ( $_SERVER['REQUEST_METHOD'] == 'POST' && isset( $_POST['register'] )) {
 	// echo $name 					= $_POST['name'];
