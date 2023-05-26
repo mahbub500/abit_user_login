@@ -8,6 +8,7 @@
 <?php 
 // $db = new Database();
 $user = new User();
+$userList = $user->userList();
 
 if ( $_SERVER['REQUEST_METHOD'] == 'POST' && isset( $_POST['register'] )) {
 	// echo $name 					= $_POST['name'];
@@ -24,7 +25,11 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' && isset( $_POST['register'] )) {
       <div class="col-md-6">
       	<?php 
       	if ( isset( $userRegi ) ) {
-      		echo $userRegi;
+      		// var_dump( $userRegi );
+
+      		// $user_list =  sprintf( "Name is %s And email is : %s <br>" , $userRegi['name'], $row['email'] );
+      		// echo $user_list	;
+
       	}
       	 ?>
       	<h1>User Registration</h1>
