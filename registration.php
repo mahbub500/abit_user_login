@@ -24,12 +24,8 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' && isset( $_POST['register'] )) {
     <div class="row">
       <div class="col-md-6">
       	<?php 
-      	if ( isset( $userRegi ) ) {
-      		// var_dump( $userRegi );
-
-      		// $user_list =  sprintf( "Name is %s And email is : %s <br>" , $userRegi['name'], $row['email'] );
-      		// echo $user_list	;
-
+      	if ( isset( $userRegi ) ) {	
+      		echo $userRegi;
       	}
       	 ?>
       	<h1>User Registration</h1>

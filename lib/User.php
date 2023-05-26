@@ -23,24 +23,23 @@ class User {
 		$dbname 	= "abit.wp";
 
 		// Create a new mysqli instance
-		$conn = new mysqli($servername, $username, $password, $dbname);
+		$conn = new mysqli( $servername, $username, $password, $dbname );
 
 		// Check the connection
 		if ($conn->connect_error) {
 		    die("Connection failed: " . $conn->connect_error);
 		}
-		echo 'Connection';
 
 
-		// $name 		= $data['name'];
-		// $email 		= $data['email'];
-		// $status 	= $data['editor_status']; 
-		// $password 	= md5( $data['Password'] );
+		$name 		= $data['name'];
+		$email 		= $data['email'];
+		$status 	= $data['editor_status']; 
+		$password 	= md5( $data['Password'] );
 
-		// if ( $name == '' || $email == '' || $status == '' || $password == '') {
-		// 	$msg = "<div class='alert alert-danger'>Field must Not Be Empty </div>";
-		// 	return $msg;
-		// }
+		if ( $name == '' || $email == '' || $status == '' || $password == '') {
+			$msg = "<div class='alert alert-danger'>Field must Not Be Empty </div>";
+			return $msg;
+		}
 
 		// Construct the SQL SELECT statement
 		$sql = "SELECT * FROM `user`";
@@ -62,7 +61,7 @@ class User {
 		// Close the database connection
 		$conn->close();
 
-		return $user_list;
+		return $msg;
 	}
 
 	public function users(){
@@ -85,7 +84,7 @@ class User {
 
 		// Execute the query
 		$result = $conn->query($sql);
-		
+
 		$user_list = [];
 
 		// Check if any rows are returned

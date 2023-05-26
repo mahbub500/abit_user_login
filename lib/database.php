@@ -5,10 +5,10 @@
  */
 class Database {
 
-	private $servername = "localhost";
-	private $username 	= "root";
-	private $password 	= "337338";
-	private $dbname 	= "abit.wp";
+	public $servername 	= "localhost";
+	public $username 	= "root";
+	public $password 	= "337338";
+	public $dbname 		= "abit.wp";
 	public 	$db_conn;
 
 	public function __construct(){
