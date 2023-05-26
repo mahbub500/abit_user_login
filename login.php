@@ -1,9 +1,11 @@
 <?php 
 	// include_once( 'Session.php' );
-	include( 'inc/Header.php' );
-	include( 'lib/database.php' );
+	// include( 'inc/Header.php' );
+	// include( 'lib/database.php' );
 
 	// echo $db = new Database();
+
+				
 
 ?>
     <div class="row">
