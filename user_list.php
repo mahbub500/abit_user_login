@@ -2,9 +2,10 @@
 	// include_once( 'Session.php' );
 	include( 'inc/Header.php' );
 	include( 'lib/User.php' );
-	// include( 'lib/database.php' );
-	$user = new User();
-	$users = $user->users();
+	include( 'lib/database.php' );
+	$user_list = new User();
+	$users 		= $user_list->users();
+	// var_dump( $users );
 ?>
 
 <div class="row">
@@ -22,12 +23,16 @@
 	</thead>
   <tbody>
   	<?php 
+  		$sl = 1;
   		foreach ( $users as $key => $user ) {
-  			echo "<pre>";
-  			var_dump( $users );
-  			echo "</pre>";
   		?>
-			 
+			<tr>
+		    	<th scope="row"> <?php echo $sl++ ?> </th>
+		    	<td> <?php echo $user['name']; ?> </td>
+		    	<td> <?php echo $user['email']; ?> </td>
+		    	<td> <?php echo $user['status']; ?> </td>
+
+		    </tr>   
   		<?php
   		}
   	 ?>

@@ -8,7 +8,7 @@
 <?php 
 // $db = new Database();
 $user = new User();
-$userList = $user->userList();
+$userList = $user->users();
 
 if ( $_SERVER['REQUEST_METHOD'] == 'POST' && isset( $_POST['register'] )) {
 	// echo $name 					= $_POST['name'];
