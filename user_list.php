@@ -1,10 +1,10 @@
 <?php 
 	// include_once( 'Session.php' );
 	include( 'inc/Header.php' );
-	include( 'lib/User.php' );
-	include( 'lib/database.php' );
-	$user_list = new User();
-	$users 		= $user_list->users();
+	// include( 'lib/User.php' );
+	// include( 'lib/database.php' );
+	// $user_list = new User();
+	// $users 		= $user_list->users();
 	// var_dump( $users );
 ?>
 
