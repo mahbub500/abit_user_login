@@ -28,10 +28,6 @@ class Page extends Database{
 		else{
 			echo "Error";
 		} 
-
-		// return $sql;
-
-
 	}
 }
 

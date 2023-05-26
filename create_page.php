@@ -7,17 +7,7 @@
 
 	if ( isset( $_POST['page_create'] )) {
 
-		// echo"<pre>";
-		// print_r( $_FILES['thumbnail']['name'] );
-		// echo"</pre>";
-
-		$pageCreate = $page->addPageData( $_POST  );
-
-		if ( isset( $pageCreate )) {
-			 echo"<pre>";
-				print_r( $pageCreate );
-				echo"</pre>";
-		}
+		$pageCreate = $page->addPageData( $_POST  );		
 	}
 
 ?>
