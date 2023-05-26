@@ -9,7 +9,6 @@ include( './database.php' );
 class User {
 	
 	private $db;
-	public $pdo;
 
 	public function __construct(){
 		$this->db = new Database();
