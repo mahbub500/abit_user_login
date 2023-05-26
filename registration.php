@@ -9,23 +9,23 @@
 // $db = new Database();
 $user = new User();
 
-if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
-	var_dump( $_POST['name'] );
-	// var_dump( $_POST['email'] );
-	// var_dump( $_POST['editor_status'] );
-	// var_dump( $_POST['Password'] );
-}
+if ( $_SERVER['REQUEST_METHOD'] == 'POST' && isset( $_POST['register'] )) {
+	// echo $name 					= $_POST['name'];
+	// echo $email 				= $_POST['email'];
+	// echo $editor_status = $_POST['editor_status'];
+	// echo $Password 			= $_POST['Password'];
+	$userRegi = $user->userRegistration( $_POST );
 
-if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
-	$userRegistration = $user->userRegistration( );
+	
+
 }
  ?>
     <div class="row">
       <div class="col-md-6">
       	<?php 
-      	// if ( isset( $userRegistration ) ) {
-      	// 	echo "Hello";
-      	// }
+      	if ( isset( $userRegi ) ) {
+      		echo $userRegi;
+      	}
       	 ?>
       	<h1>User Registration</h1>
         <form action="" method="POST">
@@ -50,7 +50,7 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
 							<input type="password" name="Password" class="form-control" id="exampleInputPassword1" placeholder="Password">
 						</div>
 						
-					<button type="submit"  class="btn btn-primary">Submit</button>
+					<button type="submit" name="register" class="btn btn-primary">Submit</button>
         </form>
       </div>  
       <div class="col-md-6"></div>  
