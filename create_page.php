@@ -14,6 +14,11 @@
     <div class="row">
       <div class="col-md-6">
       	<h1>Create Page</h1>
+      	<?php 
+      		if ( isset( $pageCreate ) ) {
+      			print_r( $pageCreate );
+      		}
+      	 ?>
         <form action="" method="post" enctype="multipart/form-data">
 						<div class="form-group">
 							<label for="InputName">Name :</label>

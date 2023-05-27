@@ -20,13 +20,18 @@ class Page extends Database{
 		$thumb_name = $_FILES['thumbnail']['name'];
 		$thumb_tmp 	= $_FILES['thumbnail']['tmp_name'];
 
-		$sql 		= "INSERT INTO `page`( `name`, `title`, `description`, `content`, `thumbnail`, `active` ) VALUES ( '$name','$title','$description','$content', '$thumb_name', '$active' )";
+		if ( $name == '' || $title == "" || $description == "" || $content == '' || $thumb_name =='' ) {
+			$msg = "<div class='alert alert-danger'><strong>Error !</strong> Flease Fill Out All Fields</div>";
+			return $msg;
+		}
+
+		$sql 		= "INSERT INTO `page`( `name`, `title`, `description`, `content`, `thumbnail`, `active` ) VALUES ( '$name','$title','$description','$content', '1.jpeg', '$active' )";
 		$result 	= $this->con->query( $sql );
 
 		if ( $result ) {
 			echo "Data Insert Successfully";
 			move_uploaded_file( $thumb_tmp,"image/".$thumb_name );
-			header("Location: ../create_page.php");
+			header("Location: page.php");
 		}
 		else{
 			echo "Error";

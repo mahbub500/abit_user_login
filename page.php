@@ -24,6 +24,7 @@
 
 <div class="row">
     <div class="col-md-12">
+    	<a href="registration.php"><button class="btn btn-sm btn-primary">Create New Page</button></a>
     	<?php 
     	if ( $page_list->num_rows == 0 ) {
       		echo $msg = "<div class='alert alert-warning'><strong>Error !</strong>No Active Page Found</div>";
@@ -77,7 +78,7 @@
 			  	 ?>   
 			  </tbody>
 			</table>
-			<h3>De Active Page List</h3>
+			<h3>Deactivate Page List</h3>
       <table class="table">
 			<thead>
 		    	<tr>
