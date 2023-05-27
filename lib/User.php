@@ -8,7 +8,9 @@ include( 'database.php' );
  */
 class User extends Database{
 
-	// Add User
+	/*
+	 * User Registration
+	 */
 	public function addUser( $data ){
 
 		$name 		= $data['name'];
@@ -16,16 +18,41 @@ class User extends Database{
 		$status 	= $data['editor_status'];
 		$password 	= md5( $data['password'] );
 
-		// $sql 		= "INSERT INTO `user`(`name`,`email`, `status`,`password`, ) VALUES ( '$name', '$email', '$status', '$password', ) ";
+		if ( $name == '' || $email == '' || $status == '' || $password == '') {
+			$msg = "<div class='alert alert-danger'>Field must Not Be Empty </div>";
+			return $msg;
+		}
+		
 		$sql 		= "INSERT INTO `user` (`id`, `name`, `email`, `status`, `password`) VALUES (NULL, '$name', '$email', '$status', '$password'); ";
 		$result 	= $this->con->query( $sql );
 
 		if ( $result ) {
-			echo "Data Insert Successfully";
-			header("Location: ../index.php");
+			$msg = "<div class='alert alert-success'>Data Inserted</div>";
+			return $msg;
+			header("Location: ../ragistration.php");
 		}
 		else{
 			echo "Error";
+		}
+	}
+
+	/*
+	 * User List
+	 */
+	public function UserList(){
+		$sql 		= "SELECT * FROM `user`";
+		$result 	= $this->con->query( $sql );
+
+		if ( $result ) {
+			return $result;
+		}
+		elseif( $result == "" ){
+			$msg = "<div class='alert alert-danger'><strong>Error !</strong> No Data Found</div>";
+			return $msg;
+		}
+		else{
+			$msg = "<div class='alert alert-danger'> <strong>Error !</strong> Some Things Wrong</div>";
+			return $msg;
 		}
 	}
 }

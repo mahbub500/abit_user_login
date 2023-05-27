@@ -1,17 +1,18 @@
 <?php 
 	// include_once( 'Session.php' );
 	include( 'inc/Header.php' );
-	// include( 'lib/User.php' );
-	// include( 'lib/database.php' );
-	// $user_list = new User();
-	// $users 		= $user_list->users();
-	// var_dump( $users );
-?>
+	include( 'lib/User.php' );
+	$user_list 	= new User();
+	$users 	= $user_list->UserList();
+	?>
 
 <div class="row">
-      <div class="col-md-6">
+      <div class="col-md-8">
+      	<?php if ( isset( $users ) && gettype( $users ) != 'object' ){
+      		print_r( $users );
+      		
+      	}?>
       	<h4>User list</h4>
-
       	<table class="table">
 	<thead>
     	<tr>
@@ -19,6 +20,7 @@
     	  <th scope="col">First</th>
     	  <th scope="col">Email</th>
     	  <th scope="col">Admin / Editor</th>
+    	  <th scope="col">Action</th>
     	</tr>
 	</thead>
   <tbody>
@@ -31,7 +33,6 @@
 		    	<td> <?php echo $user['name']; ?> </td>
 		    	<td> <?php echo $user['email']; ?> </td>
 		    	<td> <?php echo $user['status']; ?> </td>
-
 		    </tr>   
   		<?php
   		}
@@ -41,7 +42,7 @@
 </table>
         
       </div>  
-      <div class="col-md-6"></div>  
+      <div class="col-md-4"></div>  
     </div>
   </div>
 
