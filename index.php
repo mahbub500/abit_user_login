@@ -1,26 +1,34 @@
 <?php 
 	// include_once( 'Session.php' );
 	include( 'inc/Header.php' );
+	include( 'lib/User.php' );
+
+	$users 			= new User();
+	if ( isset($_POST['login']) ) {
+		$user_login = $users->login( $_POST );
+	}
+
 	
 ?>
 
 <div class="row">
     <div class="col-md-6">
-      <form action="lib/login.php" method="post">
+    	<?php     	
+			if ( isset( $user_login ) ) { 
+    				print_r( $user_login );
+    		 }
+    	 ?>
+      <form action="" method="POST">
 				<div class="form-group">
-					<label for="exampleInputEmail1">Email address</label>
-					<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+					<label for="InputEmail1">Email address</label>
+					<input type="email"name="email" class="form-control" id="InputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
 					<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
 				</div>
 				<div class="form-group">
-					<label for="exampleInputPassword1">Password</label>
-					<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-				</div>
-				<div class="form-check">
-					<input type="checkbox" class="form-check-input" id="exampleCheck1">
-					<label class="form-check-label" for="exampleCheck1">Check me out</label>
-				</div>
-			<button type="submit" class="btn btn-primary">Submit</button>
+					<label for="InputPassword1">Password</label>
+					<input type="password" name="password" class="form-control" id="InputPassword1" placeholder="Password">
+				</div>				
+			<button type="submit" name="login" class="btn btn-primary">Submit</button>
       </form>
     </div>  
     <div class="col-md-6"></div>  

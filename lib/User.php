@@ -1,6 +1,6 @@
 <?php 
 
-// include( 'Session.php' );
+include( 'Session.php' );
 include( 'database.php' );
 
 /**
@@ -66,8 +66,33 @@ class User extends Database{
 
 		if ( $result ) {
 			$msg = "<div class='alert alert-success'><strong>Success !</strong> User Removed</div>";
-			return $sql;
-			header("Location: ../user_list.php");
+			// return $sql;
+			header("Location: /user_list.php");
+		}
+	}
+
+	/*
+	 * User Login
+	 */
+	public function login( $data ){
+
+		$email 		= $data['email'] ;
+		$password 	= md5 ( $data['password'] ) ;
+		$sql 		= " SELECT * FROM `user` WHERE `email` = '$email' AND `password` = '$password' ";
+		$result 	= $this->con->query( $sql );
+
+		if ( $result->num_rows > 0) {
+			
+			header("Location: user_list.php");
+		}
+		elseif ( $result->num_rows == 0 ) {
+			$msg = "<div class='alert alert-warning alert-dismissible fade show' role='alert'>
+					  <strong>Hi Dear !</strong> You should check Your Email and Password.
+					  <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+					    <span aria-hidden='true'>&times;</span>
+					  </button>
+					</div>";
+			return $msg;
 		}
 	}
 
