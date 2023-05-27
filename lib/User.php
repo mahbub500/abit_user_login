@@ -55,4 +55,20 @@ class User extends Database{
 			return $msg;
 		}
 	}
+
+	/*
+	 * User List
+	 */
+	public function deleteUser( $data ){
+		$delete_id 	= $data['delete_id'];
+		$sql 		= "DELETE FROM `user` WHERE `user`.`id` = '$delete_id'";
+		$result 	= $this->con->query( $sql );
+
+		if ( $result ) {
+			$msg = "<div class='alert alert-success'><strong>Success !</strong> User Removed</div>";
+			return $sql;
+			header("Location: ../user_list.php");
+		}
+	}
+
 }
