@@ -51,7 +51,7 @@
 				    	<th scope="row"> <?php echo $sl++ ?> </th>
 				    	<td> <?php echo $user['name']; ?> </td>
 				    	<td> <?php echo $user['email']; ?> </td>
-				    	<td> <?php echo $user['status']; ?> </td>
+				    	<td> <?php echo $status = ( $user['status'] == 2 ) ? "Admin" : "Editor" ;?> </td>
 				    	<td>
 				    		<form method="POST">
 				    			<input type="hidden" name="delete_id" value="<?php echo $user['id'] ?>">
