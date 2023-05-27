@@ -34,10 +34,30 @@ class Page extends Database{
 	}
 
 	/**
-	 * Page List
+	 * Active Page List
 	 */
 	public function pageList(){
 		$sql 	= "SELECT * FROM `page` WHERE `active` = '1'";
+		$result = $this->con->query( $sql );
+
+		if ( $result ) {
+			return $result;
+		}
+		elseif( $result == "" ){
+			$msg = "<div class='alert alert-danger'><strong>Error !</strong> No Data Found</div>";
+			return $msg;
+		}
+		else{
+			$msg = "<div class='alert alert-danger'> <strong>Error !</strong> Some Things Wrong</div>";
+			return $msg;
+		}
+	}
+
+	/**
+	 * Deactive Page List
+	 */
+	public function deactivePageList(){
+		$sql 	= "SELECT * FROM `page` WHERE `active` = '0'";
 		$result = $this->con->query( $sql );
 
 		if ( $result ) {
@@ -77,7 +97,24 @@ class Page extends Database{
 	 * Page Deactive
 	 */
 	public function deactivePage( $id ){
+		$sql 		= "UPDATE `page` SET `active` = '0' WHERE `page`.`id` = '$id'";
+		$result 	= $this->con->query( $sql );
 
+		if ( $result ) {			
+			header("Location: page.php");
+		}
+	}
+
+	/**
+	 * Page Active
+	 */
+	public function activePage( $id ){
+		$sql 		= "UPDATE `page` SET `active` = '1' WHERE `page`.`id` = '$id'";
+		$result 	= $this->con->query( $sql );
+
+		if ( $result ) {			
+			header("Location: page.php");
+		}
 	}
 
 }
