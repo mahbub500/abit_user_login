@@ -24,7 +24,7 @@
 
 <div class="row">
     <div class="col-md-12">
-    	<a href="registration.php"><button class="btn btn-sm btn-primary">Create New Page</button></a>
+    	<a href="create_page.php"><button class="btn btn-sm btn-primary">Create New Page</button></a>
     	<?php 
     	if ( $page_list->num_rows == 0 ) {
       		echo $msg = "<div class='alert alert-warning'><strong>Error !</strong>No Active Page Found</div>";

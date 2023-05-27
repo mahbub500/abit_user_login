@@ -37,6 +37,14 @@
 					<li class="nav-item">
 						<a class="nav-link" href="create_page.php">Crate Page</a>
 					</li>
+					<li class="nav-item">
+						<?php 
+							if ( isset( $_COOKIE['user_id'] ) ) { ?>
+								<a class="nav-link" href="logout.php">Logout</a>
+						<?php
+							}
+						 ?>
+					</li>
 		    </ul>
 		  </div>
 		</nav>

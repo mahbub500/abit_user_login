@@ -1,6 +1,6 @@
 <?php 
 
-include( 'Session.php' );
+// include( 'Session.php' );
 include( 'database.php' );
 
 /**
@@ -102,6 +102,40 @@ class User extends Database{
 					</div>";
 			return $msg;
 		}
+	}
+
+	/*
+	 * User Logout
+	 */
+	public function logout(){
+		setcookie("user_id", "", time() - 3600);
+		header("Location: index.php");
+	}
+
+	/*
+	 * User IsAdmin
+	 */
+	public function isAdmin(){
+
+		if ( isset( $_COOKIE['user_id'] ) ) {
+			$User_id 	= $_COOKIE['user_id'];
+			$sql 		= " SELECT * FROM `user` WHERE `id` = '$User_id' ";
+			$result 	= $this->con->query( $sql );
+
+			if ( $result->num_rows > 0) {
+
+			foreach ( $result as $value ) {
+				if ( $value['status'] == 2 ) {
+					return true;
+				}
+				else{
+					return false;
+				}
+			}			
+		}
+			
+		}
+
 	}
 
 }

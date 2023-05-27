@@ -8,9 +8,10 @@
 		$user_login = $users->login( $_POST );
 	}	
 
-	// if ( isset( $_COOKIE['user_id'] ) ) {
-	// 	// code...
-	// }
+	if ( isset( $_COOKIE['user_id'] ) ) {
+		// print_r( $_COOKIE['user_id'] );
+		header("Location: user_list.php");
+	}
 
 	// setcookie("user_id", "", time() - 3600);
 ?>
