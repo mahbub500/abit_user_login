@@ -1,13 +1,17 @@
 <?php 
 	// include_once( 'Session.php' );
 	include( 'inc/Header.php' );
-	include ( 'lib/page_function.php' );
+	include( 'lib/page_function.php' );
 
 	$page = new Page();
 
 	if ( isset( $_POST['page_create'] )) {
-
 		$pageCreate = $page->addPageData( $_POST  );		
+	}
+
+	if ( !isset( $_COOKIE['user_id'] ) ) {
+		print_r( "<h4>Please Sign to To Create Page</h4> " );
+		return;
 	}
 
 ?>
