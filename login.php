@@ -3,7 +3,9 @@
 	// include( 'inc/Header.php' );
 	// include( 'lib/database.php' );
 
-	// echo $db = new Database();			
+	// echo $db = new Database();	
+
+
 
 ?>
     <div class="row">

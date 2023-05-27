@@ -6,9 +6,13 @@
 	$users 			= new User();
 	if ( isset($_POST['login']) ) {
 		$user_login = $users->login( $_POST );
-	}
+	}	
 
-	
+	// if ( isset( $_COOKIE['user_id'] ) ) {
+	// 	// code...
+	// }
+
+	// setcookie("user_id", "", time() - 3600);
 ?>
 
 <div class="row">
@@ -28,7 +32,7 @@
 					<label for="InputPassword1">Password</label>
 					<input type="password" name="password" class="form-control" id="InputPassword1" placeholder="Password">
 				</div>				
-			<button type="submit" name="login" class="btn btn-primary">Submit</button>
+			<button type="submit" name="login" class="btn btn-primary">Login</button>
       </form>
     </div>  
     <div class="col-md-6"></div>  

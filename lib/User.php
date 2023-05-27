@@ -82,8 +82,16 @@ class User extends Database{
 		$result 	= $this->con->query( $sql );
 
 		if ( $result->num_rows > 0) {
-			
+
+			foreach ( $result as $value ) {
+				$cookie_name 	= "user_id";
+				$cookie_value 	= $value['id'];
+				setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
+			}			
+
 			header("Location: user_list.php");
+
+			// return $result;
 		}
 		elseif ( $result->num_rows == 0 ) {
 			$msg = "<div class='alert alert-warning alert-dismissible fade show' role='alert'>
