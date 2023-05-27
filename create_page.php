@@ -1,7 +1,7 @@
 <?php 
 	// include_once( 'Session.php' );
 	include( 'inc/Header.php' );
-	include ( 'lib/page_create.php' );
+	include ( 'lib/page_function.php' );
 
 	$page = new Page();
 
