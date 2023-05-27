@@ -135,7 +135,6 @@ class User extends Database{
 		}
 			
 		}
-
 	}
 
 }

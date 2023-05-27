@@ -16,6 +16,7 @@ class Page extends Database{
 		$title 		= $data['title'];
 		$description= $data['description'];
 		$content 	= $data['content'];
+		$user_id 	= $_COOKIE['user_id'];
 		$active 	= 1;
 		$thumb_name = $_FILES['thumbnail']['name'];
 		$thumb_tmp 	= $_FILES['thumbnail']['tmp_name'];
@@ -25,7 +26,7 @@ class Page extends Database{
 			return $msg;
 		}
 
-		$sql 		= "INSERT INTO `page`( `name`, `title`, `description`, `content`, `thumbnail`, `active` ) VALUES ( '$name','$title','$description','$content', '1.jpeg', '$active' )";
+		$sql 		= "INSERT INTO `page`( `name`, `title`, `description`, `content`, `thumbnail`, `active`, `create_by`  ) VALUES ( '$name','$title','$description','$content', '1.jpeg', '$active', '$user_id' )";
 		$result 	= $this->con->query( $sql );
 
 		if ( $result ) {
