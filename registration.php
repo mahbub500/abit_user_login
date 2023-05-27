@@ -8,6 +8,11 @@
 	if ( isset( $_POST['register'] )) {
 		$userRegi = $users->addUser( $_POST );
 	}
+	$isAdmin = $users->isAdmin();
+	if ( $isAdmin == false ) {
+		$msg = print_r( "<h4>Only Admin can add user</h4>" );
+		return ;
+	}
 ?>
 
 

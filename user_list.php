@@ -9,8 +9,8 @@
 		$user_delete = $user_list->deleteUser( $_POST );
 	}
 	$isAdmin = $user_list->isAdmin();
-	
-	?>
+
+?>
 
 <div class="row">
       <div class="col-md-8">
