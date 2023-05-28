@@ -8,6 +8,10 @@
 	if ( isset( $_POST['delete_user'] ) ) {
 		$user_delete = $user_list->deleteUser( $_POST );
 	}
+
+	if ( isset( $_POST['logout'] ) ) {
+		$user_logut = $user_list->logout( $_POST );
+	}
 	$isAdmin = $user_list->isAdmin();
 
 ?>
@@ -37,9 +41,7 @@
 	    	  <th scope="col">First</th>
 	    	  <th scope="col">Email</th>
 	    	  <th scope="col">Admin / Editor</th>
-	    	  <?php if ( isset( $isAdmin ) && $isAdmin == true ) { ?>
-	    	  	<th scope="col">Action</th>
-	    	  <?php } ?>
+	    	  <th scope="col">Action</th>	    	  
 	    	</tr>
 		</thead>
 	 	 <tbody>
@@ -59,7 +61,12 @@
 					      		<button  name="delete_user" class="btn btn-sm btn-danger">
 					    				<i class="fa-solid fa-trash"></i>
 					    			</button>
-					      	<?php } ?>				    			
+					      	<?php } ?>
+					      	<?php 
+							if ( isset( $_COOKIE['user_id'] ) && $_COOKIE['user_id'] == $user['id'] ) { ?>
+					      		<button class="btn btn-sm btn-primary" name="logout" >Logout</button>
+							<?php	}
+							 ?>				    			
 				    		</form>				    		
 				    	</td>
 				    </tr>   

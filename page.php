@@ -8,13 +8,13 @@
 	$deactivelist	= $pages->deactivePageList();
 
 	if ( isset( $_POST['edit_page'] ) ) {
-		$pages->editPage( $_POST['delete_page_id'] );
+		header("Location: edit_page.php");
 	}
 	elseif ( isset( $_POST['delete_page'] ) ) {
-		$pages->deletetPage( $_POST['delete_page_id'] );
+		$pages->deletetPage( $_POST['page_id'] );
 	}
 	elseif ( isset( $_POST['deactive_page'] ) ) {
-		$pages->deactivePage( $_POST['delete_page_id'] );
+		$pages->deactivePage( $_POST['page_id'] );
 	}
 	elseif ( isset( $_POST['active_page'] ) ) {
 		var_dump( $_POST['deactive_id'] );
@@ -60,7 +60,7 @@
 					    	<td>
 					    		<form method="POST">
 					    			<div class="btn-group btn-group-toggle" >
-						    			<input type="hidden" name="delete_page_id" value="<?php echo $page['id'] ?>">
+						    			<input type="hidden" name="page_id" value="<?php echo $page['id'] ?>">
 						    			<button  name="edit_page" class="btn btn-sm btn-primary">
 						    				<i class="fa-solid fa-pen-to-square"></i>
 						    			</button>

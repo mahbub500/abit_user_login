@@ -83,6 +83,8 @@ class Page extends Database{
 	 * Page Edit
 	 */
 	public function editPage( $id ){
+
+		
 		
 	}
 
