@@ -10,3 +10,5 @@ Editor :
 	email: editor@editor.com
 	pass : 12345
 
+After login you can see user list, Only admin can create & delete user.
+Login user can create Or Delete page 

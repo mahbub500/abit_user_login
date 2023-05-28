@@ -42,7 +42,9 @@
 		    	  <th scope="col">description</th>
 		    	  <th scope="col">Content</th>
 		    	  <th scope="col">Image</th>
-		    	  <th scope="col">action</th>
+		    	  <?php if ( isset( $_COOKIE['user_id'] ) ){ ?>
+		    	  	<th scope="col">action</th>
+		    	  <?php } ?>
 		    	</tr>
 			</thead>
 		 	 <tbody>
@@ -60,16 +62,18 @@
 					    	<td>
 					    		<form method="POST">
 					    			<div class="btn-group btn-group-toggle" >
-						    			<input type="hidden" name="page_id" value="<?php echo $page['id'] ?>">
-						    			<button  name="edit_page" class="btn btn-sm btn-primary">
-						    				<i class="fa-solid fa-pen-to-square"></i>
-						    			</button>
-						    			<button  name="delete_page" class="btn btn-sm btn-danger">
-						    				<i class="fa-solid fa-trash"></i>
-						    			</button>
-						    			<button  name="deactive_page" class="btn btn-sm btn-primary">
-						    				<i class="fa-solid fa-xmark"></i> Deactive
-						    			</button>				    			
+					    				<?php if ( isset( $_COOKIE['user_id'] ) ){ ?>
+							    			<input type="hidden" name="page_id" value="<?php echo $page['id'] ?>">
+							    			<button  name="edit_page" class="btn btn-sm btn-primary">
+							    				<i class="fa-solid fa-pen-to-square"></i>
+							    			</button>
+							    			<button  name="delete_page" class="btn btn-sm btn-danger">
+							    				<i class="fa-solid fa-trash"></i>
+							    			</button>
+							    			<button  name="deactive_page" class="btn btn-sm btn-primary">
+							    				<i class="fa-solid fa-xmark"></i> Deactive
+							    			</button>
+							    		<?php } ?>				    			
 					    			</div>
 					    		</form>
 					    	</td>
@@ -89,7 +93,9 @@
 		    	  <th scope="col">description</th>
 		    	  <th scope="col">Content</th>
 		    	  <th scope="col">Image</th>
-		    	  <th scope="col">action</th>
+		    	  <?php if ( isset( $_COOKIE['user_id'] ) ){ ?>
+		    	  	<th scope="col">action</th>
+		    	  <?php } ?>	
 		    	</tr>
 			</thead>
 		 	 <tbody>
@@ -107,10 +113,12 @@
 					    	<td>
 					    		<form method="POST">
 					    			<div class="btn-group btn-group-toggle" >
-						    			<input type="hidden" name="deactive_id" value="<?php echo $page['id'] ?>">
-						    			<button  name="active_page" class="btn btn-sm btn-primary">
-						    				<i class="fa-solid fa-check"></i> Active
-						    			</button>				    			
+					    				<?php if ( isset( $_COOKIE['user_id'] ) ){ ?>
+							    			<input type="hidden" name="deactive_id" value="<?php echo $page['id'] ?>">
+							    			<button  name="active_page" class="btn btn-sm btn-primary">
+							    				<i class="fa-solid fa-check"></i> Active
+							    			</button>	
+						    			<?php } ?>			    			
 					    			</div>
 					    		</form>
 					    	</td>
