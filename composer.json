@@ -1,0 +1,15 @@
+{
+    "name": "root/abit.wp",
+    "authors": [
+        {
+            "name": "mahbubmr500",
+            "email": "mahbubmr500@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload":{
+        "psr-4":{
+            "Animal\\" : "Animal/"
+        }
+    }
+}
