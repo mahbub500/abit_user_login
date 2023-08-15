@@ -1,12 +1,34 @@
 <?php 
+	namespace Abit;
+	use Abit\Lib\Database;
+	use Abit\Lib\Helper;
+	use Abit;
 	// include_once( 'Session.php' );
 	include( 'inc/Header.php' );
-	include( 'lib/User.php' );
+	// include( 'lib/User.php' );
+	require_once( dirname( __FILE__ ) . '/vendor/autoload.php' );
 
-	$users 			= new User();
+
+	$users = new User();
+	$connection = new Database();
+
+	$sql 		= "SELECT * FROM `user`";
+	$results 	= $connection->con->query( $sql );
+
+	// echo $users->get_users();
+
+	foreach ( $results as $value) {
+		Helper::pri( $value );
+	}
+
+
+	// $users 			= new User();
 	if ( isset($_POST['login']) ) {
+		// var_dump( $_POST['email'] );
 		$user_login = $users->login( $_POST );
 	}	
+
+	
 
 	if ( isset( $_COOKIE['user_id'] ) ) {
 		// print_r( $_COOKIE['user_id'] );
@@ -19,9 +41,10 @@
 <div class="row">
     <div class="col-md-6">
     	<?php     	
-			if ( isset( $user_login ) ) { 
-    				print_r( $user_login );
-    		 }
+    	
+			// if ( isset( $user_login ) ) { 
+    		// 		print_r( $user_login );
+    		//  }
     	 ?>
       <form action="" method="POST">
 				<div class="form-group">

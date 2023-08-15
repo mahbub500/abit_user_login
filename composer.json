@@ -1,0 +1,16 @@
+{
+
+    "authors": [
+        {
+            "name": "Mahbub",
+            "email": "mahbubmr500@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Abit\\" : "classes/",
+            "Abit\\Lib\\" : "lib/"
+        },
+        "files": [ "func/function.php" ]
+    }
+}
